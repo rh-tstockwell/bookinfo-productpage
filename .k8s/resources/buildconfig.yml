@@ -1,0 +1,51 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-04-29T11:46:58Z"
+  labels:
+    app: productpage
+    app.kubernetes.io/component: productpage
+    app.kubernetes.io/instance: productpage
+  name: productpage
+  namespace: bookinfo
+  resourceVersion: "404728366"
+  selfLink: /apis/build.openshift.io/v1/namespaces/bookinfo/buildconfigs/productpage
+  uid: 220383cf-8a0f-11ea-a6ee-0a580a820124
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: productpage:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: migrating-apps-v3/1.1
+      uri: https://github.com/rh-tstockwell/bookinfo-productpage.git
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: python:3.6
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - github:
+      secret: Rec7BdnfT3IRn-IN20TP
+    type: GitHub
+  - generic:
+      secret: aSXigryMiIpBvhPK5hRT
+    type: Generic
+  - type: ConfigChange
+  - imageChange:
+      lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:74a35cacd850bc5210c75736719dede699d21a6b2581a3d55c4807c1b545bd69
+    type: ImageChange
+status:
+  lastVersion: 1

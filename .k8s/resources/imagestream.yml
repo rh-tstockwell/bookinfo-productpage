@@ -1,0 +1,29 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-04-29T11:46:58Z"
+  generation: 1
+  labels:
+    app: productpage
+    app.kubernetes.io/component: productpage
+    app.kubernetes.io/instance: productpage
+  name: productpage
+  namespace: bookinfo
+  resourceVersion: "404731931"
+  selfLink: /apis/image.openshift.io/v1/namespaces/bookinfo/imagestreams/productpage
+  uid: 21e03096-8a0f-11ea-a6ee-0a580a820124
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/bookinfo/productpage
+  publicDockerImageRepository: default-route-openshift-image-registry.apps.cluster.example.com/bookinfo/productpage
+  tags:
+  - items:
+    - created: "2020-04-29T11:50:05Z"
+      dockerImageReference: image-registry.openshift-image-registry.svc:5000/bookinfo/productpage@sha256:a51fdbb068f88b50c74d35167a7577c165084e41c38bc5f61c7117958f49d366
+      generation: 1
+      image: sha256:a51fdbb068f88b50c74d35167a7577c165084e41c38bc5f61c7117958f49d366
+    tag: latest

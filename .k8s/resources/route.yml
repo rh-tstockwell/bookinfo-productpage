@@ -1,0 +1,35 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2020-04-29T11:47:38Z"
+  labels:
+    app: productpage
+    app.kubernetes.io/component: productpage
+    app.kubernetes.io/instance: productpage
+  name: productpage
+  namespace: bookinfo
+  resourceVersion: "404729132"
+  selfLink: /apis/route.openshift.io/v1/namespaces/bookinfo/routes/productpage
+  uid: 39bb0bab-8a0f-11ea-b451-0a580a80011a
+spec:
+  host: productpage-bookinfo.apps.cluster.example.com
+  port:
+    targetPort: 8080-tcp
+  subdomain: ""
+  to:
+    kind: Service
+    name: productpage
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2020-04-29T11:47:38Z"
+      status: "True"
+      type: Admitted
+    host: productpage-bookinfo.apps.cluster.example.com
+    routerCanonicalHostname: apps.cluster.example.com
+    routerName: default
+    wildcardPolicy: None
