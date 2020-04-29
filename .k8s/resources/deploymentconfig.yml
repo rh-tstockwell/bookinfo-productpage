@@ -1,19 +1,12 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-  creationTimestamp: "2020-04-29T11:46:59Z"
-  generation: 2
+  annotations: {}
   labels:
     app: productpage
     app.kubernetes.io/component: productpage
     app.kubernetes.io/instance: productpage
   name: productpage
-  namespace: bookinfo
-  resourceVersion: "404732431"
-  selfLink: /apis/apps.openshift.io/v1/namespaces/bookinfo/deploymentconfigs/productpage
-  uid: 222833a6-8a0f-11ea-a6ee-0a580a820124
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -31,15 +24,12 @@ spec:
     type: Rolling
   template:
     metadata:
-      annotations:
-        openshift.io/generated-by: OpenShiftNewApp
-      creationTimestamp: null
+      annotations: {}
       labels:
         deploymentconfig: productpage
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/bookinfo/productpage@sha256:a51fdbb068f88b50c74d35167a7577c165084e41c38bc5f61c7117958f49d366
-        imagePullPolicy: Always
+      - imagePullPolicy: Always
         name: productpage
         ports:
         - containerPort: 8080
@@ -63,29 +53,4 @@ spec:
         kind: ImageStreamTag
         name: productpage:latest
         namespace: bookinfo
-      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/bookinfo/productpage@sha256:a51fdbb068f88b50c74d35167a7577c165084e41c38bc5f61c7117958f49d366
     type: ImageChange
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2020-04-29T11:50:28Z"
-    lastUpdateTime: "2020-04-29T11:50:28Z"
-    message: Deployment config has minimum availability.
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2020-04-29T11:50:29Z"
-    lastUpdateTime: "2020-04-29T11:50:29Z"
-    message: replication controller "productpage-1" successfully rolled out
-    reason: NewReplicationControllerAvailable
-    status: "True"
-    type: Progressing
-  details:
-    causes:
-    - type: ConfigChange
-    message: config change
-  latestVersion: 1
-  observedGeneration: 2
-  readyReplicas: 1
-  replicas: 1
-  unavailableReplicas: 0
-  updatedReplicas: 1

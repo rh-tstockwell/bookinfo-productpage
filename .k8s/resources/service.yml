@@ -1,20 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    openshift.io/generated-by: OpenShiftNewApp
-  creationTimestamp: "2020-04-29T11:46:59Z"
+  annotations: {}
   labels:
     app: productpage
     app.kubernetes.io/component: productpage
     app.kubernetes.io/instance: productpage
   name: productpage
-  namespace: bookinfo
-  resourceVersion: "404728386"
-  selfLink: /api/v1/namespaces/bookinfo/services/productpage
-  uid: 224cdc05-8a0f-11ea-8a72-0698e01dcbf2
 spec:
-  clusterIP: 127.0.0.1
   ports:
   - name: 8080-tcp
     port: 8080
@@ -24,5 +17,3 @@ spec:
     deploymentconfig: productpage
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
